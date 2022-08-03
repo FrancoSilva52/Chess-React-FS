@@ -9,13 +9,14 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: gray;
+    background-image: url(./assets/madera-fondo.jpg);
 }
 
 .board-container{
     width: 600px;
     height: 600px;
-
+    border: 15px solid  #947c4d; ;
+    box-shadow: 13px 15px 17px -10px rgba(0,0,0,0.78);
 }
 
 .board{
@@ -23,6 +24,8 @@
     height: 100%;
     display: flex;
     flex-wrap: wrap;
+    
+    
 }
 
 .square{
@@ -31,10 +34,12 @@
 }
 
 .square-black{
-    background-color: #947c4d;
+    /* background-color: #947c4d; */
+    background-image: url(./assets/black-square.png);
 }
 .square-white{
-    background-color: #F0d9b5;
+    /* background-color: #F0d9b5; */
+    background-image: url(./assets/white-square.png);
 }
 
 .board-square{

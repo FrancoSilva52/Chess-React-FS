@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import './App.css'
-import {gameSubject, initGame} from './Game'
+import {gameSubject, initGame, restartGame} from './Game'
 import Board from './Board'
 
 
@@ -23,10 +23,11 @@ function App() {
   return (
   <div className='container'>
     {gameOver && (
-      <><h2 className='gameOver'>GAME OVER</h2>
-        <button className='button-GameOver'>
-          <span  className='gameOver'>NEW GAME</span>
-        </button>
+      <>
+        <h2 className='gameOver'>GAME OVER</h2>
+          <button className='button-GameOver' onClick={restartGame}>
+            <span  className='gameOver'>NEW GAME</span>
+          </button>
       </>
     )}
     <div className='board-container'>

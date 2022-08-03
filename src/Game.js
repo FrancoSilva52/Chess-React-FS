@@ -1,14 +1,22 @@
 import {Chess} from 'chess.js'
 import {BehaviorSubject} from 'rxjs'
 
-const staleMate= '4k3/4P3/4K3/8/8/8/8/8 b - - 0 78'
 
-const chess = new Chess(staleMate)
+const chess = new Chess()
 
 export const gameSubject = new BehaviorSubject()
 
 export function initGame(){
+    const guardado = localStorage.getItem('juegoGuardado')
+    if(guardado){
+        chess.load(guardado)
+    }
     updateGame()
+}
+
+export function restartGame(){
+   chess.reset()
+   updateGame() 
 }
 
 export function handleMove(from , to){
@@ -23,8 +31,6 @@ export function handleMove(from , to){
      const{promoPending}= gameSubject.getValue()
 
      if(!promoPending){
-
-        console.log('se movi');
          move(from,to)
      }
    
@@ -50,6 +56,7 @@ function updateGame(promoPending){
         gameOver,
         result: gameOver? gameResult(): null
     }
+    localStorage.setItem('juegoGuardado', chess.fen())
 
     gameSubject.next(newGame)
 }

@@ -19,7 +19,7 @@ export default function BoardSquare({piece, black, position}) {
     const subscribe = gameSubject.subscribe(({promoPending}) =>
       promoPending && promoPending.to === position 
       ? setPromotion(promoPending)
-      :setPromotion(null)
+      : setPromotion(null)
     )
     
     return() => subscribe.unsubscribe();
